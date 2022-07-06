@@ -3,6 +3,8 @@ from kivymd.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from kivy.core.window import Window
 
+from Menu.menu import Menu
+
 Builder.load_file("main.kv")
 
 class MainView(BoxLayout):
