@@ -14,6 +14,7 @@ class AlarmApp(MDApp):
     
     def build(self):
         Window.size = (500, 1000)
+        self.theme_cls.theme_style = "Dark"
         return MainView()
     
 if __name__ == "__main__":
