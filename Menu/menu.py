@@ -1,5 +1,5 @@
-from kivymd.uix.bottomnavigation import MDBottomNavigation
+from kivymd.uix.boxlayout import BoxLayout
 
-class Menu(MDBottomNavigation):
+class Menu(BoxLayout):
     
     pass
