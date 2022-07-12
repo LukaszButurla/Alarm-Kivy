@@ -4,6 +4,7 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 
 from Menu.menu import Menu
+from Clock.clock import Clock
 
 Builder.load_file("main.kv")
 
