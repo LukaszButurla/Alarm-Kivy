@@ -1,10 +1,12 @@
+from re import T
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from kivy.core.window import Window
+from Clock.clock import ClockWidget
 
 from Menu.menu import Menu
-from Clock.clock import Clock
+from time import sleep
 
 Builder.load_file("main.kv")
 
@@ -19,6 +21,7 @@ class AlarmApp(MDApp):
         Window.size = (500, 1000)
         self.theme_cls.theme_style = "Dark"
         return MainView()
+
     
 if __name__ == "__main__":
     
