@@ -11,7 +11,10 @@ class TimerWidget(FloatLayout):
     timerActive = False
     timerStart = None
     timerTime = None
-    timerDeltaTime = StringProperty()
+    timerDeltaTime = StringProperty("00:00:00.00")
+    timerPause = False
+    timerPauseTime = 0
+    timerPauseStart = None
     
     def __init__(self, **kwargs):
         Clock.schedule_interval(self.count_time, 0.05)
@@ -29,12 +32,25 @@ class TimerWidget(FloatLayout):
             self.timerActive = False
             self.ids.btnStartStopId.pos_hint = {"x": 0.4, "y": 0.4}
             self.ids.btnPauseId.opacity = 0
+            self.timerPauseTime = 0
+            self.timerPause = False
+            self.timerDeltaTime = "00:00:00.00"
+            
+    def pause_timer(self):
+        
+        if self.timerPause == True:
+            self.timerPause = False
+            self.timerPauseTime += (time.time() - self.timerPauseStart)
+        else:
+            self.timerPause = True
+            self.timerPauseStart = time.time()
+        
             
     def count_time(self, dt):
         
-        if self.timerActive == True:
+        if self.timerActive == True and self.timerPause == False:
             
-            self.timerTime = time.time() - self.timerStart
+            self.timerTime = time.time() - (self.timerStart + self.timerPauseTime)
             
             hour = self.timerTime / 3600
             hour = floor(hour)
