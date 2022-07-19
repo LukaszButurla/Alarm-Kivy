@@ -2,11 +2,11 @@
 
     MDLabel:
         id: timerLabel
-        text: "00:00.00"
+        text: root.timerDeltaTime
         halign: "center"
-        size_hint: .7, .1
+        size_hint: 1, .1
         font_size: self.height/1.2
-        pos_hint: {"x" : .15, "y" : .45}
+        pos_hint: {"x" : 0, "y" : .45}
 
     FloatLayout:
         orientation: "horizontal"

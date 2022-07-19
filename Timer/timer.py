@@ -3,6 +3,7 @@ from kivy.uix.button import Button
 import time
 from math import floor
 from kivy.clock import Clock
+from kivy.properties import StringProperty
 
 
 class TimerWidget(FloatLayout):
@@ -10,6 +11,7 @@ class TimerWidget(FloatLayout):
     timerActive = False
     timerStart = None
     timerTime = None
+    timerDeltaTime = StringProperty()
     
     def __init__(self, **kwargs):
         Clock.schedule_interval(self.count_time, 0.05)
@@ -51,8 +53,13 @@ class TimerWidget(FloatLayout):
             secondsDot = str(self.timerTime).find(".")
             second = str(self.timerTime)[:secondsDot]
             
+            if len(str(second)) < 2:
+                second = "0" + str(second)
+            
             milisecond = str(self.timerTime)[secondsDot+1:secondsDot+3]
             
             print(hour, minute, second, milisecond)
+            
+            self.timerDeltaTime = "{}:{}:{}.{}".format(hour, minute, second, milisecond)
             
         
