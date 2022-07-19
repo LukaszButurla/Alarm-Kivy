@@ -1,9 +1,18 @@
 from kivy.uix.floatlayout import FloatLayout
 from datetime import datetime
+from kivy.properties import StringProperty
+from kivy.clock import Clock
+
 
 class ClockWidget(FloatLayout):
     
-    def get_current_time(self):
+    currentTime = StringProperty("0")
+    
+    def __init__(self, **kwargs):
+        Clock.schedule_interval(self.get_current_time, 1)
+        super().__init__(**kwargs)
+    
+    def get_current_time(self, dt):
         
         hour = datetime.now().hour
         minute = datetime.now().minute
@@ -18,11 +27,12 @@ class ClockWidget(FloatLayout):
         if len(str(second)) < 2:
             second = "0" + str(second)
             
-        self.set_label_values(hour, minute, second)
+        self.currentTime = "{}:{}.{}".format(hour, minute, second)
+        
+        
+            
+        
+
+            
         
     
-    def set_label_values(self, hour, minute, second):
-        
-        print(hour, minute, second)
-        
-        self.ids.clockLabel.text = "{}:{}.{}".format(hour, minute, second)

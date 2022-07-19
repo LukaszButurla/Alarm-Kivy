@@ -1,16 +1,10 @@
 <ClockWidget>:
 
+
     MDLabel:
         id: clockLabel
-        text: "12:12.12"
+        text: root.currentTime
         halign: "center"
         size_hint: .7, .1
         font_size: self.height/1.2
         pos_hint: {"x" : .15, "y" : .45}
-
-    Button:
-        size_hint: .2, .2
-        text: "test"
-        on_press: root.get_current_time()
-
-        
