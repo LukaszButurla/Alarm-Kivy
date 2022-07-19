@@ -3,6 +3,7 @@ from kivymd.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from kivy.core.window import Window
 from Clock.clock import ClockWidget
+from Timer.timer import TimerWidget
 
 from Menu.menu import Menu
 
