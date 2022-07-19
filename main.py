@@ -20,6 +20,7 @@ class AlarmApp(MDApp):
         Window.size = (500, 1000)
         self.theme_cls.theme_style = "Dark"
         self.clockWidget = ClockWidget()
+        self.timerWidget = TimerWidget()
         return MainView()
     
 
