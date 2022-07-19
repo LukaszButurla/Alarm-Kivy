@@ -1,0 +1,32 @@
+<TimerWidget>:
+
+    MDLabel:
+        id: timerLabel
+        text: root.timerDeltaTime
+        halign: "center"
+        size_hint: 1, .1
+        font_size: self.height/1.2
+        pos_hint: {"x" : 0, "y" : .45}
+
+    FloatLayout:
+        orientation: "horizontal"
+        size_hint: 1, .2
+        pos_hint: {"x": 0, "y": .3}
+
+        Button:
+            id: btnStartStopId
+            text: "Play"
+            size_hint: .2, .2
+            pos_hint: {"x" : .4, "y": .4}
+            on_press: root.start_stop_timer()
+
+        Button:
+            id: btnPauseId
+            text: "Pause"
+            size_hint: .2, .2
+            opacity: 0
+            pos_hint: {"x" : .2, "y": .4}
+            on_press: root.pause_timer()
+
+
+        

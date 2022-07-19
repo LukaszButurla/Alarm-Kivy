@@ -3,6 +3,7 @@ from kivymd.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 from kivy.core.window import Window
 from Clock.clock import ClockWidget
+from Timer.timer import TimerWidget
 
 from Menu.menu import Menu
 
@@ -19,6 +20,7 @@ class AlarmApp(MDApp):
         Window.size = (500, 1000)
         self.theme_cls.theme_style = "Dark"
         self.clockWidget = ClockWidget()
+        self.timerWidget = TimerWidget()
         return MainView()
     
 
