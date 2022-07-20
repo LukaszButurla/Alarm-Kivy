@@ -1,4 +1,26 @@
 <TimepieceWidget>:
+    
+    FloatLayout:
+        size_hint: 1, .2
+        pos_hint: {"x": 0, "y": .5}
+
+        Button:
+            id: btnAddHourId
+            text: "+"
+            size_hint: .15, .2
+            pos_hint: {"x" : .2, "y": .22}
+
+        Button:
+            id: btnAddMinuteId
+            text: "+"
+            size_hint: .15, .2
+            pos_hint: {"x" : .42, "y": .22}
+
+        Button:
+            id: btnAddSecondId
+            text: "+"
+            size_hint: .15, .2
+            pos_hint: {"x" : .64, "y": .22}
 
     MDLabel:
         id: timerLabel
@@ -7,3 +29,25 @@
         size_hint: 1, .1
         font_size: self.height/1.2
         pos_hint: {"x" : 0, "y" : .45}
+
+    FloatLayout:
+        size_hint: 1, .2
+        pos_hint: {"x": 0, "y": .33}
+
+        Button:
+            id: btnMinusHourId
+            text: "-"
+            size_hint: .15, .2
+            pos_hint: {"x" : .2, "y": .4}
+
+        Button:
+            id: btnMinusMinuteId
+            text: "-"
+            size_hint: .15, .2
+            pos_hint: {"x" : .42, "y": .4}
+
+        Button:
+            id: btnMinusSecondId
+            text: "-"
+            size_hint: .15, .2
+            pos_hint: {"x" : .64, "y": .4}
