@@ -9,18 +9,21 @@
             text: "+"
             size_hint: .15, .2
             pos_hint: {"x" : .2, "y": .22}
+            on_press: root.add("hour")
 
         Button:
             id: btnAddMinuteId
             text: "+"
             size_hint: .15, .2
             pos_hint: {"x" : .42, "y": .22}
+            on_press: root.add("minute")
 
         Button:
             id: btnAddSecondId
             text: "+"
             size_hint: .15, .2
             pos_hint: {"x" : .64, "y": .22}
+            on_press: root.add("second")
 
     MDLabel:
         id: timerLabel
@@ -39,15 +42,18 @@
             text: "-"
             size_hint: .15, .2
             pos_hint: {"x" : .2, "y": .4}
+            on_press: root.minus("hour")
 
         Button:
             id: btnMinusMinuteId
             text: "-"
             size_hint: .15, .2
             pos_hint: {"x" : .42, "y": .4}
+            on_press: root.minus("minute")
 
         Button:
             id: btnMinusSecondId
             text: "-"
             size_hint: .15, .2
             pos_hint: {"x" : .64, "y": .4}
+            on_press: root.minus("second")
