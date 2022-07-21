@@ -7,6 +7,33 @@ class TimepieceWidget(FloatLayout):
     selectedMinute = 0
     selectedSecond = 0
     selectedTime = StringProperty("00:00.00")
+    timepieceActive = False
+    timepiecePause = False
+    
+    def start_stop_timepiece(self):
+        
+        if self.timepieceActive == False:
+            self.timepieceActive = True
+            self.ids.btnStartId.pos_hint = {"x" : 0.55, "y" : 0.6}
+            self.ids.btnPauseId.opacity = 1
+            
+        else:
+            self.timepieceActive = False
+            self.ids.btnStartId.pos_hint = {"x" : 0.4, "y" : 0.6}
+            self.ids.btnPauseId.opacity = 0
+            self.ids.btnPauseId.disabled = True
+            self.timepiecePause = False
+            
+    def pause_timepiece(self):
+        
+        if self.timepiecePause == True:
+            self.timepiecePause = False
+            
+        else:
+            self.timepiecePause = True
+            
+            
+        
     
     def add(self, time):
         

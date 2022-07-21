@@ -57,3 +57,23 @@
             size_hint: .15, .2
             pos_hint: {"x" : .64, "y": .4}
             on_press: root.minus("second")
+
+    FloatLayout:
+        size_hint: 1, .2
+        pos_hint: {"x" : 0, "y": .21}
+
+        Button:
+            id: btnStartId
+            text: "Play"
+            size_hint: .2, .2
+            pos_hint: {"x" : .42, "y": .6}
+            on_press: root.start_stop_timepiece()
+
+        Button:
+            id: btnPauseId
+            text: "Pause"
+            size_hint: .2, .2
+            pos_hint: {"x" : .25, "y": .6}
+            opacity: 0
+            disabled: True
+            on_press: root.pause_timepiece()
