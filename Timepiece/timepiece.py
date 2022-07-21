@@ -50,6 +50,8 @@ class TimepieceWidget(FloatLayout):
             self.ids.btnPauseId.disabled = True
             self.timepiecePause = False
             self.enable_disable_buttons(False)
+            self.check_len(self.selectedHour, self.selectedMinute, self.selectedSecond)
+                    
             
     def count_timepiece(self, dt):
         
@@ -75,6 +77,9 @@ class TimepieceWidget(FloatLayout):
             self.check_len(self.hourToEnd, self.minuteToEnd, self.secondToEnd)
             
             self.lastDelta = time.time()
+        
+        elif self.timepieceActive == True and self.timepieceTimeToEnd < 1.5:
+            self.start_stop_timepiece()
             
     def enable_disable_buttons(self, disableBool):
         
