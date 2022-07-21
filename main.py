@@ -4,6 +4,7 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from Clock.clock import ClockWidget
 from Timer.timer import TimerWidget
+from Timepiece.timepiece import TimepieceWidget
 
 from Menu.menu import Menu
 
@@ -21,6 +22,7 @@ class AlarmApp(MDApp):
         self.theme_cls.theme_style = "Dark"
         self.clockWidget = ClockWidget()
         self.timerWidget = TimerWidget()
+        self.timepieceWidget = TimepieceWidget()
         return MainView()
     
 
