@@ -1,5 +1,6 @@
 from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import StringProperty
+from kivy.clock import Clock
 
 class TimepieceWidget(FloatLayout):
     
@@ -10,12 +11,23 @@ class TimepieceWidget(FloatLayout):
     timepieceActive = False
     timepiecePause = False
     
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+    
     def start_stop_timepiece(self):
         
         if self.timepieceActive == False:
-            self.timepieceActive = True
-            self.ids.btnStartId.pos_hint = {"x" : 0.55, "y" : 0.6}
-            self.ids.btnPauseId.opacity = 1
+            
+            if int(self.selectedHour) > 0 or int(self.selectedMinute) > 0 or int(self.selectedSecond) > 0:
+            
+                print("start")
+                self.timepieceActive = True
+                self.ids.btnStartId.pos_hint = {"x" : 0.55, "y" : 0.6}
+                self.ids.btnPauseId.opacity = 1
+                self.ids.btnPauseId.disabled = False
+                
+            else:
+                print('n start')
             
         else:
             self.timepieceActive = False
@@ -31,7 +43,7 @@ class TimepieceWidget(FloatLayout):
             
         else:
             self.timepiecePause = True
-            
+
             
         
     

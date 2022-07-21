@@ -22,6 +22,7 @@ class AlarmApp(MDApp):
         self.theme_cls.theme_style = "Dark"
         self.clockWidget = ClockWidget()
         self.timerWidget = TimerWidget()
+        self.timepieceWidget = TimepieceWidget()
         return MainView()
     
 
