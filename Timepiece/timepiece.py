@@ -25,6 +25,7 @@ class TimepieceWidget(FloatLayout):
                 self.ids.btnStartId.pos_hint = {"x" : 0.55, "y" : 0.6}
                 self.ids.btnPauseId.opacity = 1
                 self.ids.btnPauseId.disabled = False
+                self.enable_disable_buttons(True)
                 
             else:
                 print('n start')
@@ -35,6 +36,28 @@ class TimepieceWidget(FloatLayout):
             self.ids.btnPauseId.opacity = 0
             self.ids.btnPauseId.disabled = True
             self.timepiecePause = False
+            self.enable_disable_buttons(False)
+            
+    def enable_disable_buttons(self, disableBool):
+        
+        self.ids.btnAddHourId.disabled = disableBool
+        self.ids.btnAddMinuteId.disabled = disableBool
+        self.ids.btnAddSecondId.disabled = disableBool
+        self.ids.btnMinusHourId.disabled = disableBool
+        self.ids.btnMinusMinuteId.disabled = disableBool
+        self.ids.btnMinusSecondId.disabled = disableBool
+            
+        if disableBool == True:
+            disableBool = 0
+        else:
+            disableBool = 1
+            
+        self.ids.btnAddHourId.opacity = disableBool
+        self.ids.btnAddMinuteId.opacity = disableBool
+        self.ids.btnAddSecondId.opacity = disableBool
+        self.ids.btnMinusHourId.opacity = disableBool
+        self.ids.btnMinusMinuteId.opacity = disableBool
+        self.ids.btnMinusSecondId.opacity = disableBool
             
     def pause_timepiece(self):
         
