@@ -18,6 +18,8 @@ class TimepieceWidget(FloatLayout):
     timepieceStartTime = None
     timepieceEndTime = None
     timepieceTimeToEnd = 0
+    timepiecePauseStart = 0
+    timepiecePauseTime = 0
     
     def __init__(self, **kwargs):
         Clock.schedule_interval(self.count_timepiece, 1)
@@ -51,7 +53,16 @@ class TimepieceWidget(FloatLayout):
             self.timepiecePause = False
             self.enable_disable_buttons(False)
             self.check_len(self.selectedHour, self.selectedMinute, self.selectedSecond)
-                    
+            
+    def pause_timepiece(self):
+        
+        if self.timepiecePause == True:
+            self.timepiecePause = False
+            self.timepiecePauseTime = time.time() - self.timepiecePauseStart
+            self.timepieceTimeToEnd += self.timepiecePauseTime
+        else:
+            self.timepiecePause = True
+            self.timepiecePauseStart = time.time()
             
     def count_timepiece(self, dt):
         
@@ -100,15 +111,7 @@ class TimepieceWidget(FloatLayout):
         self.ids.btnAddSecondId.opacity = disableBool
         self.ids.btnMinusHourId.opacity = disableBool
         self.ids.btnMinusMinuteId.opacity = disableBool
-        self.ids.btnMinusSecondId.opacity = disableBool
-            
-    def pause_timepiece(self):
-        
-        if self.timepiecePause == True:
-            self.timepiecePause = False
-            
-        else:
-            self.timepiecePause = True        
+        self.ids.btnMinusSecondId.opacity = disableBool     
     
     def add(self, time):
         
