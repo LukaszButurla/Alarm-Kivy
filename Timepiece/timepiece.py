@@ -42,8 +42,6 @@ class TimepieceWidget(FloatLayout):
                 self.ids.btnPauseId.disabled = False
                 self.enable_disable_buttons(True)
                 
-            else:
-                print('n start')
             
         else:
             self.timepieceActive = False
@@ -70,9 +68,7 @@ class TimepieceWidget(FloatLayout):
             
             delta = time.time() - self.lastDelta
             
-            self.timepieceTimeToEnd -= delta
-                        
-            print(self.timepieceTimeToEnd, "to end")
+            self.timepieceTimeToEnd -= delta                        
                     
             self.hourToEnd = floor(self.timepieceTimeToEnd/3600)
             self.minuteToEnd = floor((self.timepieceTimeToEnd - self.hourToEnd * 3600) / 60)
@@ -80,10 +76,7 @@ class TimepieceWidget(FloatLayout):
             
             dot = str(self.secondToEnd).find(".")
             self.secondToEnd = str(self.secondToEnd)[:dot]
-            
-            print(self.hourToEnd, "h")
-            print(self.minuteToEnd, "m")
-            print(self.secondToEnd, "s")
+        
             
             self.check_len(self.hourToEnd, self.minuteToEnd, self.secondToEnd)
             
