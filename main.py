@@ -5,6 +5,7 @@ from kivy.core.window import Window
 from Clock.clock import ClockWidget
 from Timer.timer import TimerWidget
 from Timepiece.timepiece import TimepieceWidget
+from Alarm.alarm import AlarmWidget
 
 from Menu.menu import Menu
 
