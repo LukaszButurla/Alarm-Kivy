@@ -1,5 +1,6 @@
 from kivy.uix.boxlayout import BoxLayout
 import os
+from Alarm.AddAlarmWindow.addAlarmWindow import AddAlarmWindow
 
 class AlarmWidget(BoxLayout):
     
@@ -8,6 +9,11 @@ class AlarmWidget(BoxLayout):
     def __init__(self, **kwargs):
         self.show_alarms()
         super().__init__(**kwargs)
+        
+    def open_add_alarm_window(self):
+        
+        AddAlarmWindow().open_window()
+        
     
     def show_alarms(self):
         
@@ -26,4 +32,6 @@ class AlarmWidget(BoxLayout):
                     alarmDescription = line[4]
                     
                     print("hour - {}\nminute - {}\ndays - {}\ncolor - {}\ndes - {}\n".format(alarmHour, alarmMinute, alarmDays, alarmColor, alarmDescription))
+                    
+
                     
